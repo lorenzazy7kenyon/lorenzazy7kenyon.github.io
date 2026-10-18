@@ -1,4 +1,4 @@
-# RU节点 | 10月18日|免费Singbox节点/V2ray节点/Clash节点/SSR节点订阅分享 更新时间 2026-10-18 16:12:17
+# RU节点 | 10月18日|免费Singbox节点/V2ray节点/Clash节点/SSR节点订阅分享 更新时间 2026-10-18 16:36:25
 
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：[点击跳转](https://lorenzazy7kenyon.github.io)
 
@@ -30,4 +30,4 @@
 
 ## 今日更新
 
-[2026-10-18 完整节点列表](https://lorenzazy7kenyon.github.io/free-nodes/2026-10-18-free-node.htm)
+[2026-10-18 完整节点列表](https://lorenzazy7kenyon.github.io/free-nodes/free-ssr-node-2026-10-18.htm)

@@ -26,6 +26,47 @@ AIRPORTS = []
 
 BACKFILL_DAYS = 30  # 首次运行向前回填的每日文章天数
 
+# 每篇文章 slug 轮换的关键词（参考站做法：URL 覆盖不同搜索词）
+KW_POOL = ["free-clash-node", "free-v2ray-subscribe", "free-ssr-node", "free-singbox-node",
+           "shadowrocket-node", "trojan-node-share", "free-node-subscribe", "clash-v2ray-ss-ssr",
+           "free-high-speed-nodes", "node-share-links", "free-v2ray-clash-subscribe", "free-shadowrocket-node"]
+
+PROTO_POOL = ["Clash", "V2ray", "Singbox", "SSR", "Trojan", "Shadowrocket"]
+
+TIPS = [
+    "免费节点时效性很短，建议每天更新一次订阅，出现大面积超时就到首页拿最新订阅链接重新导入。",
+    "使用「自动选择」分组时，客户端会自动测速切换到最低延迟节点，比手动挑选更省心。",
+    "节点名称中的国旗代表落地地区，看视频建议选日本、新加坡、韩国等近距离节点，延迟更低。",
+    "如果订阅无法下载，可能是运营商屏蔽了 GitHub Pages，先连接任意可用节点后再更新订阅。",
+    "Trojan 与 Hysteria2 协议抗干扰能力更强，优先使用这两类节点通常更稳定。",
+    "免费节点属于公共资源，切勿登录网银、社交账号等敏感服务，注意隐私安全。",
+    "客户端开启「允许局域网连接」后，同一网络下的电视、盒子等设备也能共享代理。",
+    "遇到部分网站无法打开，尝试切换不同地区节点，或检查客户端分流规则是否为全局模式。",
+    "Sing-box 订阅与 Clash 订阅内容一致，只是格式不同，选对应客户端支持的格式导入即可。",
+    "每天多次更新会让节点池产生少量波动，更新订阅后旧节点消失是正常现象。",
+]
+
+
+def slug_for(dd):
+    y, m, d = dd[:4], int(dd[5:7]), int(dd[8:10])
+    kw = KW_POOL[int(dd.replace("-", "")) % len(KW_POOL)]
+    return "{}-{}-{}-{}".format(kw, y, m, d)
+
+
+def proto_counts(nodes):
+    c = {}
+    for p in nodes:
+        c[p["type"]] = c.get(p["type"], 0) + 1
+    return c
+
+
+def proto_para(protocols):
+    if not protocols:
+        return ""
+    names = {"vmess": "VMess", "vless": "VLESS", "ss": "Shadowsocks", "trojan": "Trojan", "hysteria2": "Hysteria2"}
+    parts = ["{}节点 {} 个".format(names.get(k, k), v) for k, v in sorted(protocols.items(), key=lambda x: -x[1])]
+    return "<p>本次节点协议分布：{}。</p>".format("、".join(parts))
+
 SOURCES = [
     "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
     "https://raw.githubusercontent.com/freefq/free/master/v2",
@@ -653,8 +694,10 @@ def airports_block(count):
 
 def article_of(day_info, date, slug, idx, total):
     m, d = date[5:7], date[8:10]
-    title = "{} | {}月{}日{c}|免费Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点节点订阅分享".format(
-        SITE_NAME, int(m), int(d), c=str(day_info["count"]) + "个" if day_info.get("count") else "")
+    protos = PROTO_POOL[idx % len(PROTO_POOL):] + PROTO_POOL[:idx % len(PROTO_POOL)]
+    title = "{} | {}月{}日{c}|免费{}节点/{}节点/{}节点/{}节点/{}节点/{}节点订阅分享".format(
+        SITE_NAME, int(m), int(d), c=str(day_info["count"]) + "个" if day_info.get("count") else "",
+        *[p for p in protos])
     desc = "这一次的节点更新覆盖了{r}等地区。只需复制下方的Clash节点/V2ray节点和singbox节点订阅链接,在客户端添加后即可正常使用。".format(
         r="、".join(day_info.get("regions", [])))
     stamp = frame = datetime.strptime(date, "%Y-%m-%d")
@@ -672,7 +715,7 @@ def url_of(slug):
 
 def main():
     date_full = now8().strftime("%Y-%m-%d")
-    today_slug = date_full + "-free-node"
+    today_slug = slug_for(date_full)
     ysn, msn = date_full[:4], date_full[5:7]
     stamp = stamp_str()
 
@@ -727,7 +770,7 @@ def main():
 
     os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
     days = days_load()
-    days[date_full] = {"count": len(uniq), "regions": regions_of(uniq)}
+    days[date_full] = {"count": len(uniq), "regions": regions_of(uniq), "protocols": proto_counts(uniq)}
 
     # 回填历史每日文章（确定性洗牌，每天独立订阅文件）
     day_nodes_by_date = {}
@@ -741,7 +784,8 @@ def main():
         idx = list(range(len(uniq)))
         rnd.shuffle(idx)
         day_nodes_by_date[dd] = [uniq[j] for j in idx]
-        days[dd] = {"count": len(day_nodes_by_date[dd]), "regions": regions_of(day_nodes_by_date[dd]), "backfill": True}
+        days[dd] = {"count": len(day_nodes_by_date[dd]), "regions": regions_of(day_nodes_by_date[dd]),
+                    "protocols": proto_counts(day_nodes_by_date[dd]), "backfill": True}
         b_ysn, b_msn = dd[:4], dd[5:7]
         b_dir = os.path.join(ROOT, "uploads", b_ysn, b_msn)
         os.makedirs(b_dir, exist_ok=True)
@@ -806,7 +850,7 @@ def main():
 
     arts = {}
     for i, dd in enumerate(day_dates):
-        slug = dd + "-free-node"
+        slug = slug_for(dd)
         arts[dd] = article_of(days[dd], dd, slug, i, len(day_dates))
     latest = arts[day_dates[-1]]
 
@@ -828,14 +872,13 @@ def main():
         return sidebar(latest_slug, sampled[-10:], months, ad=ad)
 
     # 旧文件清理
-    for pat, d in ((os.path.join(ROOT, "free-nodes", "*.html"), os.path.join(ROOT, "free-nodes")),
-                   (os.path.join(ROOT, "newly-discovered-nodes", "*.html"), os.path.join(ROOT, "newly-discovered-nodes"))):
+    for pat in (os.path.join(ROOT, "free-nodes", "*.htm"),
+                os.path.join(ROOT, "newly-discovered-nodes", "*.htm")):
         for f in glob.glob(pat):
-            if re.fullmatch(r"\d{8}\.html", os.path.basename(f)):
-                os.remove(f)
+            os.remove(f)
 
     # ---- index.html ----
-    blog_list = "".join(blog_item(dict(arts[dd], url=url_of(dd + "-free-node"))) for dd in reversed(day_dates[-20:]))
+    blog_list = "".join(blog_item(dict(arts[dd], url=url_of(slug_for(dd)))) for dd in reversed(day_dates[-20:]))
     col9 = "<h2>最近更新文章</h2>\n<div class=\"xcblog-blog-list\">\n" + blog_list + "\n</div>"
     html = head("index", SITE_TITLE, SITE_DESC, BASE_URL + "/")
     html += hero_index("{}最新免费V2ray/Clash节点分享".format(ysn),
@@ -865,6 +908,7 @@ def main():
         mdt = datetime.strptime(dd, "%Y-%m-%d")
         intro = "<p>今天是{}年{}月{}日，继续给大家带来最新免费节点，已全部合并到下方的订阅链接中，添加到客户端即可使用，节点数量一共{}个，地区包含了{}，节点已全部去重整理。</p>".format(
             dd[:4], int(m), mdt.day, dcount, "、".join(a["regions"]))
+        unique = proto_para(days[dd].get("protocols", {})) + "<p>" + TIPS[day_dates.index(dd) % len(TIPS)] + "</p>"
         subs = ("<h2>订阅文件链接</h2>\n"
                 "<p><strong>Clash订阅链接</strong></p>\n" + subs_cell(day_subs_url(dd, "yaml")) + "\n"
                 "<p><strong>V2ray订阅链接:</strong></p>\n" + subs_cell(day_subs_url(dd, "txt")) + "\n"
@@ -881,7 +925,7 @@ def main():
                      '<div class="panel-body"><ul class="p-0 x-0">'
                      + "".join('<li class="py-2"><a href="{}.htm">{}</a></li>'.format(r["slug"], esc(r["title"])) for r in rec)
                      + "</ul></div></div>")
-        col9 = intro + airports_block(1) + subs + use + '<div class="col-md-12 mt-5">' + navp + "</div>" + rec_panel
+        col9 = intro + unique + airports_block(1) + subs + use + '<div class="col-md-12 mt-5">' + navp + "</div>" + rec_panel
         crumbs = '<span class="mr-2"><a href="/free-nodes/">免费节点 <i class="fa fa-chevron-right"></i></a></span> '
         doc = head("detail", a["title"] + " - " + SITE_NAME, a["desc"], a["url"], og_type="article")
         doc += hero2(a["title"], crumbs=crumbs, tail="正文")
