@@ -13,10 +13,10 @@ from datetime import datetime, timedelta, timezone
 import yaml
 
 BASE_URL = "https://lorenzazy7kenyon.github.io"
-SITE_NAME = "RU节点"
-SITE_FULL = "RU节点免费节点 机场订阅中文站"
-SITE_TITLE = "RU节点 | 2026免费V2ray/Clash/SSR节点推荐"
-SITE_DESC = "提供最新RU节点免费节点资源，支持Clash、SSR协议，附详细教程和配置指南。"
+SITE_NAME = "Free Clash"
+SITE_FULL = "Free Clash 免费节点 机场订阅中文站"
+SITE_TITLE = "Free Clash | 2026免费V2ray/Clash/SSR节点推荐"
+SITE_DESC = "提供最新 Free Clash 免费节点资源，支持Clash、SSR协议，附详细教程和配置指南。"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 TZ = timezone(timedelta(hours=8))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
@@ -1038,10 +1038,10 @@ def main():
 ''')
 
     write_static("about-us.htm", "关于我们", "关于我们",
-                 "RU节点是一个免费的Clash/V2ray/Sing-box节点订阅分享站，所有节点均爬取自网络并每日自动更新。",
+                 "Free Clash 是一个免费的Clash/V2ray/Sing-box节点订阅分享站，所有节点均爬取自网络并每日自动更新。",
                  '''
 <h2>关于我们</h2>
-<p><b>RU节点</b>（{}）是一个免费节点订阅分享站，通过自动化脚本每日多次从网络上公开渠道抓取可用的 Clash / V2ray / Sing-box 免费节点，自动去重、整理后发布为标准订阅链接，方便大家学习研究之用。</p>
+<p><b>Free Clash</b>（{}）是一个免费节点订阅分享站，通过自动化脚本每日多次从网络上公开渠道抓取可用的 Clash / V2ray / Sing-box 免费节点，自动去重、整理后发布为标准订阅链接，方便大家学习研究之用。</p>
 <ul><li>所有节点均爬取自网络公开资料，本站不提供服务本身，也不保证节点的可用性与安全性；</li>
 <li>节点每约 6 小时自动更新一次，可在<a href="/">首页</a>查看最新更新时间；</li>
 <li>本站不收集用户任何个人数据，也无登录/注册功能；</li>
@@ -1049,7 +1049,7 @@ def main():
 '''.format(BASE_URL))
 
     write_static("disclaimer.htm", "免责声明", "免责声明",
-                 "RU节点免责声明：本站所有节点均来自网络公开资源，仅供学习研究，使用者需自行承担使用风险。",
+                 "Free Clash 免责声明：本站所有节点均来自网络公开资源，仅供学习研究，使用者需自行承担使用风险。",
                  '''
 <h2>免责声明</h2>
 <ol><li>本站所有节点信息均收集自互联网公开资源，<b>本站不生产、不拥有、不维护任何节点服务</b>；</li>
@@ -1060,7 +1060,7 @@ def main():
 ''')
 
     write_static("privacy.htm", "隐私协议", "隐私协议",
-                 "RU节点隐私协议：本站为静态站点，不收集、不存储、不共享任何用户个人数据。",
+                 "Free Clash 隐私协议：本站为静态站点，不收集、不存储、不共享任何用户个人数据。",
                  '''
 <h2>隐私协议</h2>
 <ol><li>本站为纯静态站点（由 GitHub Pages 托管），<b>不设登录、不注册、不采集任何用户个人信息</b>；</li>
