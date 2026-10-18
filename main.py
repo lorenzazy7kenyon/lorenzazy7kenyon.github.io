@@ -24,6 +24,8 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Sa
 # 推荐机场：如需展示付费机场推广，在此填写 ("名称","注册链接","简介")，留空则不展示
 AIRPORTS = []
 
+BACKFILL_DAYS = 30  # 首次运行向前回填的每日文章天数
+
 SOURCES = [
     "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
     "https://raw.githubusercontent.com/freefq/free/master/v2",
@@ -726,6 +728,43 @@ def main():
     os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
     days = days_load()
     days[date_full] = {"count": len(uniq), "regions": regions_of(uniq)}
+
+    # 回填历史每日文章（确定性洗牌，每天独立订阅文件）
+    day_nodes_by_date = {}
+    for back in range(BACKFILL_DAYS, 0, -1):
+        dd = (now8() - timedelta(days=back)).strftime("%Y-%m-%d")
+        if dd in days and days[dd].get("backfill") and dd in day_nodes_by_date:
+            continue
+        if dd in days and not days[dd].get("backfill"):
+            continue
+        rnd = random.Random(dd)
+        idx = list(range(len(uniq)))
+        rnd.shuffle(idx)
+        day_nodes_by_date[dd] = [uniq[j] for j in idx]
+        days[dd] = {"count": len(day_nodes_by_date[dd]), "regions": regions_of(day_nodes_by_date[dd]), "backfill": True}
+        b_ysn, b_msn = dd[:4], dd[5:7]
+        b_dir = os.path.join(ROOT, "uploads", b_ysn, b_msn)
+        os.makedirs(b_dir, exist_ok=True)
+        b_links = export_links(day_nodes_by_date[dd])
+        open(os.path.join(b_dir, "0-{}.yaml".format(dd.replace("-", ""))), "w", encoding="utf-8").write(
+            clash_yaml(day_nodes_by_date[dd]))
+        open(os.path.join(b_dir, "0-{}.txt".format(dd.replace("-", ""))), "w", encoding="utf-8").write(
+            base64.b64encode("\n".join(b_links).encode()).decode() + "\n")
+        b_obs, b_tags = [], set()
+        for p in day_nodes_by_date[dd]:
+            ob = singbox_outbound(p)
+            if ob and ob["tag"] not in b_tags:
+                b_tags.add(ob["tag"])
+                b_obs.append(ob)
+        b_cfg = {
+            "log": {"level": "warn", "timestamp": True},
+            "dns": {"servers": [{"tag": "remote", "address": "https://1.1.1.1/dns-query"},
+                                {"tag": "local", "address": "https://dns.alidns.com/dns-query"}]},
+            "outbounds": [{"type": "urltest", "tag": "自动选择", "interval": "5m",
+                           "outbounds": [o["tag"] for o in b_obs]}] + b_obs + [{"type": "direct", "tag": "direct"}],
+        }
+        open(os.path.join(b_dir, "{}.json".format(dd.replace("-", ""))), "w", encoding="utf-8").write(
+            json.dumps(b_cfg, ensure_ascii=False, indent=1))
     days_save(days)
 
     upload_dir = os.path.join(ROOT, "uploads", ysn, msn)
@@ -796,13 +835,25 @@ def main():
                 os.remove(f)
 
     # ---- index.html ----
-    blog_list = "".join(blog_item(dict(arts[dd], url=url_of(dd + "-free-node"))) for dd in reversed(day_dates[-15:]))
+    blog_list = "".join(blog_item(dict(arts[dd], url=url_of(dd + "-free-node"))) for dd in reversed(day_dates[-20:]))
     col9 = "<h2>最近更新文章</h2>\n<div class=\"xcblog-blog-list\">\n" + blog_list + "\n</div>"
     html = head("index", SITE_TITLE, SITE_DESC, BASE_URL + "/")
     html += hero_index("{}最新免费V2ray/Clash节点分享".format(ysn),
                        "包含美国、日本、台湾、香港、新加坡等节点，提供完整教程，帮助用户快速搭建翻墙环境。")
     html += layout_section(col9, side_html(today_slug, None)) + FOOTER_TPL
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(html)
+
+    def day_subs_url(dd, ext):
+        compact = dd.replace("-", "")
+        if dd == date_full:
+            root_u = "{}/uploads/{}/{}/".format(BASE_URL, ysn, msn)
+            if ext == "json":
+                return [root_u + "{}-free-node.json".format(compact)]
+            return [root_u + "{}-{}-free-node.{}".format(i, compact, ext) for i in range(5)]
+        root_u = "{}/uploads/{}/{}/".format(BASE_URL, dd[:4], dd[5:7])
+        if ext == "json":
+            return [root_u + "{}.json".format(compact)]
+        return [root_u + "0-{}.{}".format(compact, ext)]
 
     # ---- 今日文章页 ----
     for dd in day_dates:
@@ -815,9 +866,9 @@ def main():
         intro = "<p>今天是{}年{}月{}日，继续给大家带来最新免费节点，已全部合并到下方的订阅链接中，添加到客户端即可使用，节点数量一共{}个，地区包含了{}，节点已全部去重整理。</p>".format(
             dd[:4], int(m), mdt.day, dcount, "、".join(a["regions"]))
         subs = ("<h2>订阅文件链接</h2>\n"
-                "<p><strong>Clash订阅链接</strong></p>\n" + subs_cell(yaml_urls) + "\n"
-                "<p><strong>V2ray订阅链接:</strong></p>\n" + subs_cell(txt_urls) + "\n"
-                "<p><strong>Sing-Box订阅链接</strong></p>\n" + subs_cell([sb_url]) + "\n")
+                "<p><strong>Clash订阅链接</strong></p>\n" + subs_cell(day_subs_url(dd, "yaml")) + "\n"
+                "<p><strong>V2ray订阅链接:</strong></p>\n" + subs_cell(day_subs_url(dd, "txt")) + "\n"
+                "<p><strong>Sing-Box订阅链接</strong></p>\n" + subs_cell(day_subs_url(dd, "json")) + "\n")
         use = ("<h2>使用必看</h2>\n"
                "<p>全部节点信息均来自互联网收集，且用且珍惜。仅针对用于学习研究的用户分享，请勿随意传播其他信息。免费节点有效时间比较短，遇到失效是正常现象。</p>")
         navp = ""
@@ -838,7 +889,7 @@ def main():
         open(os.path.join(ROOT, "free-nodes", sl + ".htm"), "w", encoding="utf-8").write(doc)
 
     # ---- free-nodes 列表页 ----
-    col9 = "".join(blog_item(dict(a, url=url_of(a["slug"]))) for a in reversed(list(arts.values())[-60:]))
+    col9 = "".join(blog_item(dict(a, url=url_of(a["slug"]))) for a in reversed(list(arts.values())[-90:]))
     col9 = '<div class="xcblog-blog-list">' + col9 + "</div>"
     doc = head("list", "免费节点 - " + SITE_NAME, "免费clash节点、免费v2ray节点、免费singbox节点每日更新分享。", BASE_URL + "/free-nodes/")
     doc += hero2("免费节点")
