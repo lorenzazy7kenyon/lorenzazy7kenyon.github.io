@@ -413,6 +413,7 @@ def clean_old_uploads(keep_months=2):
 HEAD_TPL = """<!DOCTYPE html>
 <html xml:lang="zh-CN" lang="zh-CN">
 <head>
+    <meta name="google-site-verification" content="p7ah5V_-k_15Rm-VniFY1K0iOh5KxQIjKCNwqV9geKI" />
     <link rel="canonical" href="@@canonical@@" />
     <title>@@title@@</title>
     <meta name="keywords" content="@@keywords@@" />
