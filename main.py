@@ -629,7 +629,7 @@ def head(page, title, description, canonical, og_type="webpage", robots="index,f
     return render(HEAD_TPL, page=page, title=title, description=description, keywords=keywords,
                   canonical=canonical, og_type=og_type, robots=robots, site_name=SITE_NAME,
                   site_full=SITE_FULL, base_url=BASE_URL,
-                  nav=NAV_TPL.replace("@@brand_tag@@", "<h1>RU节点中心</h1>" if page == "index" else "<span>RU节点中心</span>"))
+                  nav=NAV_TPL.replace("@@brand_tag@@", "<h1>Free Clash 节点中心</h1>" if page == "index" else "<span>Free Clash 节点中心</span>"))
 
 
 def blog_item(info):
