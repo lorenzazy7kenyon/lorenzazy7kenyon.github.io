@@ -1,4 +1,4 @@
-# Free Clash | 10月27日|免费Singbox节点/V2ray节点/Clash节点/SSR节点订阅分享 更新时间 2026-10-27 19:56:09
+# Free Clash | 10月28日|免费Singbox节点/V2ray节点/Clash节点/SSR节点订阅分享 更新时间 2026-10-28 01:53:02
 
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：[点击跳转](https://lorenzazy7kenyon.github.io)
 
@@ -10,24 +10,24 @@
 
 ### 免费Clash节点订阅链接
 
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261027-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261027-free-node.yaml)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261027-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261027-free-node.yaml)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261027-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261027-free-node.yaml)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261027-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261027-free-node.yaml)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261027-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261027-free-node.yaml)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261028-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261028-free-node.yaml)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261028-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261028-free-node.yaml)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261028-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261028-free-node.yaml)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261028-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261028-free-node.yaml)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261028-free-node.yaml](https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261028-free-node.yaml)
 
 ### 免费V2ray节点订阅链接
 
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261027-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261027-free-node.txt)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261027-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261027-free-node.txt)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261027-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261027-free-node.txt)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261027-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261027-free-node.txt)
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261027-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261027-free-node.txt)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261028-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/0-20261028-free-node.txt)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261028-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/1-20261028-free-node.txt)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261028-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/2-20261028-free-node.txt)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261028-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/3-20261028-free-node.txt)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261028-free-node.txt](https://lorenzazy7kenyon.github.io/uploads/2026/10/4-20261028-free-node.txt)
 
 ### 免费Sing-box节点订阅链接
 
-- [https://lorenzazy7kenyon.github.io/uploads/2026/10/20261027-free-node.json](https://lorenzazy7kenyon.github.io/uploads/2026/10/20261027-free-node.json)
+- [https://lorenzazy7kenyon.github.io/uploads/2026/10/20261028-free-node.json](https://lorenzazy7kenyon.github.io/uploads/2026/10/20261028-free-node.json)
 
 ## 今日更新
 
-[2026-10-27 完整节点列表](https://lorenzazy7kenyon.github.io/free-nodes/free-shadowrocket-node-2026-10-27.htm)
+[2026-10-28 完整节点列表](https://lorenzazy7kenyon.github.io/free-nodes/free-clash-node-2026-10-28.htm)
