@@ -1,4 +1,4 @@
-# Free Clash | 10月28日|免费Singbox节点/V2ray节点/Clash节点/SSR节点订阅分享 更新时间 2026-10-28 13:09:10
+# Free Clash | 10月28日|免费Singbox节点/V2ray节点/Clash节点/SSR节点订阅分享 更新时间 2026-10-28 20:33:15
 
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：[点击跳转](https://lorenzazy7kenyon.github.io)
 
