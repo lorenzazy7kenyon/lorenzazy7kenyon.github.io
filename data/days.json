@@ -439,7 +439,7 @@
   "backfill": true
  },
  "2026-10-09": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -450,16 +450,16 @@
    "英国"
   ],
   "protocols": {
+   "vless": 1165,
    "vmess": 940,
-   "trojan": 381,
-   "ss": 197,
-   "vless": 1135,
-   "hysteria2": 50
+   "trojan": 384,
+   "ss": 195,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-10": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -471,15 +471,15 @@
   ],
   "protocols": {
    "vmess": 940,
-   "vless": 1135,
-   "trojan": 381,
-   "ss": 197,
-   "hysteria2": 50
+   "vless": 1165,
+   "trojan": 384,
+   "ss": 195,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-11": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -490,16 +490,16 @@
    "英国"
   ],
   "protocols": {
-   "vless": 1135,
    "vmess": 940,
-   "trojan": 381,
-   "ss": 197,
-   "hysteria2": 50
+   "vless": 1165,
+   "trojan": 384,
+   "ss": 195,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-12": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -510,16 +510,16 @@
    "英国"
   ],
   "protocols": {
-   "vless": 1135,
    "vmess": 940,
-   "trojan": 381,
-   "ss": 197,
-   "hysteria2": 50
+   "vless": 1165,
+   "trojan": 384,
+   "hysteria2": 58,
+   "ss": 195
   },
   "backfill": true
  },
  "2026-10-13": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -530,16 +530,16 @@
    "英国"
   ],
   "protocols": {
-   "trojan": 381,
+   "vless": 1165,
+   "trojan": 384,
    "vmess": 940,
-   "ss": 197,
-   "vless": 1135,
-   "hysteria2": 50
+   "ss": 195,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-14": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -550,16 +550,16 @@
    "英国"
   ],
   "protocols": {
+   "vless": 1165,
+   "trojan": 384,
    "vmess": 940,
-   "vless": 1135,
-   "trojan": 381,
-   "ss": 197,
-   "hysteria2": 50
+   "ss": 195,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-15": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -570,16 +570,16 @@
    "英国"
   ],
   "protocols": {
+   "vless": 1165,
+   "ss": 195,
    "vmess": 940,
-   "vless": 1135,
-   "trojan": 381,
-   "ss": 197,
-   "hysteria2": 50
+   "trojan": 384,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-16": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -590,16 +590,16 @@
    "英国"
   ],
   "protocols": {
-   "ss": 197,
-   "vless": 1135,
+   "ss": 195,
+   "vless": 1165,
    "vmess": 940,
-   "trojan": 381,
-   "hysteria2": 50
+   "trojan": 384,
+   "hysteria2": 58
   },
   "backfill": true
  },
  "2026-10-17": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -610,11 +610,11 @@
    "英国"
   ],
   "protocols": {
-   "vless": 1135,
+   "vless": 1165,
+   "trojan": 384,
    "vmess": 940,
-   "ss": 197,
-   "trojan": 381,
-   "hysteria2": 50
+   "hysteria2": 58,
+   "ss": 195
   },
   "backfill": true
  },
@@ -999,7 +999,7 @@
   }
  },
  "2026-11-08": {
-  "count": 2703,
+  "count": 2742,
   "regions": [
    "美国",
    "香港",
@@ -1010,10 +1010,10 @@
    "英国"
   ],
   "protocols": {
-   "hysteria2": 50,
-   "ss": 197,
-   "trojan": 381,
-   "vless": 1135,
+   "hysteria2": 58,
+   "ss": 195,
+   "trojan": 384,
+   "vless": 1165,
    "vmess": 940
   }
  }
