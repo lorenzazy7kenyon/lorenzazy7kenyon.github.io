@@ -499,7 +499,7 @@
   "backfill": true
  },
  "2026-10-12": {
-  "count": 2735,
+  "count": 2498,
   "regions": [
    "美国",
    "香港",
@@ -510,16 +510,16 @@
    "英国"
   ],
   "protocols": {
-   "ss": 194,
-   "hysteria2": 46,
-   "vmess": 1008,
-   "vless": 1103,
-   "trojan": 384
+   "trojan": 396,
+   "vless": 1301,
+   "vmess": 558,
+   "ss": 187,
+   "hysteria2": 56
   },
   "backfill": true
  },
  "2026-10-13": {
-  "count": 2735,
+  "count": 2498,
   "regions": [
    "美国",
    "香港",
@@ -530,16 +530,16 @@
    "英国"
   ],
   "protocols": {
-   "vless": 1103,
-   "ss": 194,
-   "vmess": 1008,
-   "trojan": 384,
-   "hysteria2": 46
+   "trojan": 396,
+   "vless": 1301,
+   "vmess": 558,
+   "hysteria2": 56,
+   "ss": 187
   },
   "backfill": true
  },
  "2026-10-14": {
-  "count": 2735,
+  "count": 2498,
   "regions": [
    "美国",
    "香港",
@@ -550,16 +550,16 @@
    "英国"
   ],
   "protocols": {
-   "trojan": 384,
-   "vless": 1103,
-   "vmess": 1008,
-   "hysteria2": 46,
-   "ss": 194
+   "vless": 1301,
+   "vmess": 558,
+   "hysteria2": 56,
+   "trojan": 396,
+   "ss": 187
   },
   "backfill": true
  },
  "2026-10-15": {
-  "count": 2735,
+  "count": 2498,
   "regions": [
    "美国",
    "香港",
@@ -570,16 +570,16 @@
    "英国"
   ],
   "protocols": {
-   "vless": 1103,
-   "vmess": 1008,
-   "ss": 194,
-   "trojan": 384,
-   "hysteria2": 46
+   "vless": 1301,
+   "ss": 187,
+   "vmess": 558,
+   "trojan": 396,
+   "hysteria2": 56
   },
   "backfill": true
  },
  "2026-10-16": {
-  "count": 2735,
+  "count": 2498,
   "regions": [
    "美国",
    "香港",
@@ -590,16 +590,16 @@
    "英国"
   ],
   "protocols": {
-   "vmess": 1008,
-   "vless": 1103,
-   "trojan": 384,
-   "hysteria2": 46,
-   "ss": 194
+   "ss": 187,
+   "trojan": 396,
+   "vless": 1301,
+   "vmess": 558,
+   "hysteria2": 56
   },
   "backfill": true
  },
  "2026-10-17": {
-  "count": 2735,
+  "count": 2498,
   "regions": [
    "美国",
    "香港",
@@ -610,11 +610,11 @@
    "英国"
   ],
   "protocols": {
-   "vmess": 1008,
-   "vless": 1103,
-   "ss": 194,
-   "hysteria2": 46,
-   "trojan": 384
+   "vless": 1301,
+   "trojan": 396,
+   "hysteria2": 56,
+   "vmess": 558,
+   "ss": 187
   },
   "backfill": true
  },
@@ -1053,6 +1053,25 @@
    "trojan": 384,
    "vless": 1103,
    "vmess": 1008
+  }
+ },
+ "2026-11-11": {
+  "count": 2498,
+  "regions": [
+   "美国",
+   "香港",
+   "日本",
+   "新加坡",
+   "台湾",
+   "韩国",
+   "英国"
+  ],
+  "protocols": {
+   "hysteria2": 56,
+   "ss": 187,
+   "trojan": 396,
+   "vless": 1301,
+   "vmess": 558
   }
  }
 }
