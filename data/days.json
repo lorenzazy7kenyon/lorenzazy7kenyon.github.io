@@ -519,7 +519,7 @@
   "backfill": true
  },
  "2026-10-13": {
-  "count": 2684,
+  "count": 2677,
   "regions": [
    "美国",
    "香港",
@@ -530,16 +530,16 @@
    "英国"
   ],
   "protocols": {
-   "vmess": 956,
-   "vless": 1110,
-   "trojan": 389,
-   "ss": 184,
-   "hysteria2": 45
+   "trojan": 375,
+   "hysteria2": 36,
+   "vless": 1108,
+   "vmess": 961,
+   "ss": 197
   },
   "backfill": true
  },
  "2026-10-14": {
-  "count": 2684,
+  "count": 2677,
   "regions": [
    "美国",
    "香港",
@@ -550,16 +550,16 @@
    "英国"
   ],
   "protocols": {
-   "vmess": 956,
-   "ss": 184,
-   "vless": 1110,
-   "hysteria2": 45,
-   "trojan": 389
+   "trojan": 375,
+   "vless": 1108,
+   "hysteria2": 36,
+   "vmess": 961,
+   "ss": 197
   },
   "backfill": true
  },
  "2026-10-15": {
-  "count": 2684,
+  "count": 2677,
   "regions": [
    "美国",
    "香港",
@@ -570,16 +570,16 @@
    "英国"
   ],
   "protocols": {
-   "trojan": 389,
-   "vless": 1110,
-   "vmess": 956,
-   "ss": 184,
-   "hysteria2": 45
+   "vmess": 961,
+   "vless": 1108,
+   "trojan": 375,
+   "ss": 197,
+   "hysteria2": 36
   },
   "backfill": true
  },
  "2026-10-16": {
-  "count": 2684,
+  "count": 2677,
   "regions": [
    "美国",
    "香港",
@@ -590,16 +590,16 @@
    "英国"
   ],
   "protocols": {
-   "vmess": 956,
-   "trojan": 389,
-   "ss": 184,
-   "vless": 1110,
-   "hysteria2": 45
+   "trojan": 375,
+   "vmess": 961,
+   "vless": 1108,
+   "ss": 197,
+   "hysteria2": 36
   },
   "backfill": true
  },
  "2026-10-17": {
-  "count": 2684,
+  "count": 2677,
   "regions": [
    "美国",
    "香港",
@@ -610,11 +610,11 @@
    "英国"
   ],
   "protocols": {
-   "vless": 1110,
-   "ss": 184,
-   "vmess": 956,
-   "hysteria2": 45,
-   "trojan": 389
+   "ss": 197,
+   "vmess": 961,
+   "vless": 1108,
+   "trojan": 375,
+   "hysteria2": 36
   },
   "backfill": true
  },
@@ -1075,7 +1075,7 @@
   }
  },
  "2026-11-12": {
-  "count": 2684,
+  "count": 2677,
   "regions": [
    "美国",
    "香港",
@@ -1086,11 +1086,11 @@
    "英国"
   ],
   "protocols": {
-   "hysteria2": 45,
-   "ss": 184,
-   "trojan": 389,
-   "vless": 1110,
-   "vmess": 956
+   "hysteria2": 36,
+   "ss": 197,
+   "trojan": 375,
+   "vless": 1108,
+   "vmess": 961
   }
  }
 }
